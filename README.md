@@ -18,7 +18,7 @@
    docker-compose.yml должен содержать следующие директивы:
 1. [ ]    [build](https://docs.docker.com/compose/compose-file/compose-file-v3/#build) 
 2. [ ]    [ports](https://docs.docker.com/compose/compose-file/compose-file-v3/#ports) (python-приложение слушает по порту 8080)
-3. [ ]    [environment](https://docs.docker.com/compose/compose-file/compose-file-v3/#environment). По-умолчанию приложение имеет переменную HelloMessage='Hello world!', необходимо при запуске приложения указать значение данной переменной равным 'Hello iac!'
+3. [ ]    [environment](https://docs.docker.com/compose/compose-file/compose-file-v3/#environment). По-умолчанию приложение имеет переменную `HelloMessage='Hello world!'`, необходимо при запуске приложения указать значение данной переменной равным `Hello iac!`
 
 ## 3. Ansible
 Необходимо настроить сервер с помощью ansible для запуска приложения с помощью ранее написанного docker-compose.
@@ -30,4 +30,15 @@
 
 
 _Для выполнения данного пункта можно использовать сторонние роли.
-Все используемые роли следует указать в файле requirements.yml._
+Все используемые роли следует указать в файле requirements.yml.
+
+## 4. Проверка
+
+После запуска приложения, оно будет слушать по указанному в docker-compose.yml файле порту.
+При выполнении curl $server_ip:$app_port приложение должно отдавать указанную в переменных окружения строку
+
+В результате ожидаем ссылку на git-репозиторий, хранящий в себе как минимум:
+* Dockerfile
+* docker-compose файл
+* Структура скриптов ansible (playbooks)
+* Указание в README используемого дистрибутива Linux.
